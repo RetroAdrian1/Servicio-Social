@@ -1,0 +1,32 @@
+{%extends "loginLayout.html"%}
+{%block content%}
+	<div class="content-section" position="relative">
+		<form method="POST" action="">
+			{{form.hidden_tag()}}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Introduce el correo electrónico</legend>
+				
+				<div class="form-group">
+					{{form.correo.label(class="form-control-label")}}
+					{%if form.correo.errors%}
+						{{form.correo(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.correo.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.correo(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{form.submit(class="btn btn-outline-info")}}	
+			</div>
+		</form>
+	</div>
+	<div class="border-top pt-3">
+	</div>
+{%endblock content%}

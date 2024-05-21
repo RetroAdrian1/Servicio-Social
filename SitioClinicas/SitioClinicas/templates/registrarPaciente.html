@@ -1,0 +1,620 @@
+<!doctype html>
+{%extends "layout.html"%}
+{%block content%}
+	<div class="content-section">
+		<form method="POST" action="" novalidate>
+			{{form.hidden_tag()}}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Ingresa los datos del paciente</legend>
+				<div class="form-group">
+					{{form.id.label(class="form-control-label")}}
+					{%if form.id.errors%}
+						{{form.id(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.id.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.id(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.rfc.label(class="form-control-label")}}
+					{%if form.rfc.errors%}
+						{{form.rfc(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.rfc.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.rfc(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.fechaRemision.label(class="form-control-label")}}
+					{%if form.fechaRemision.errors%}
+						{{form.fechaRemision(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.fechaRemision.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.fechaRemision(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.fechaAtención.label(class="form-control-label")}}
+					{%if form.fechaAtención.errors%}
+						{{form.fechaAtención(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.fechaAtención.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.fechaAtención(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.sexo.label(class="form-control-label")}}
+					{%if form.sexo.errors%}
+						{{form.sexo(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.sexo.errors %}
+								<span>
+									{{error}}
+								</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.sexo(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.edad.label(class="form-control-label")}}
+					{%if form.edad.errors%}
+						{{form.edad(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.edad.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.edad(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.nombre.label(class="form-control-label")}}
+					{%if form.nombre.errors%}
+						{{form.nombre(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.nombre.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.nombre(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.apellidoPaterno.label(class="form-control-label")}}
+					{%if form.apellidoPaterno.errors%}
+						{{form.apellidoPaterno(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.apellidoPaterno.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.apellidoPaterno(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.apellidoMaterno.label(class="form-control-label")}}
+					{%if form.apellidoMaterno.errors%}
+						{{form.apellidoMaterno(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.apellidoMaterno.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.apellidoMaterno(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.fechaNacimiento.label(class="form-control-label")}}
+					{%if form.fechaNacimiento.errors%}
+						{{form.fechaNacimiento(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.fechaNacimiento.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.fechaNacimiento(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.edadAños.label(class="form-control-label")}}
+					{%if form.edadAños.errors%}
+						{{form.edadAños(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.edadAños.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.edadAños(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.edadMeses.label(class="form-control-label")}}
+					{%if form.edadMeses.errors%}
+						{{form.edadMeses(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.edadMeses.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.edadMeses(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.telefonoCasa.label(class="form-control-label")}}
+					{%if form.telefonoCasa.errors%}
+						{{form.telefonoCasa(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.telefonoCasa.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.telefonoCasa(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.extensionTelefono.label(class="form-control-label")}}
+					{%if form.extensionTelefono.errors%}
+						{{form.extensionTelefono(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.extensionTelefono.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.extensionTelefono(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.telefonoOficina.label(class="form-control-label")}}
+					{%if form.telefonoOficina.errors%}
+						{{form.telefonoOficina(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.telefonoOficina.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.telefonoOficina(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.celular.label(class="form-control-label")}}
+					{%if form.celular.errors%}
+						{{form.celular(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.celular.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.celular(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.email.label(class="form-control-label")}}
+					{%if form.email.errors%}
+						{{form.email(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.email.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.email(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.calle.label(class="form-control-label")}}
+					{%if form.calle.errors%}
+						{{form.calle(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.calle.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.calle(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.numeroExterior.label(class="form-control-label")}}
+					{%if form.numeroExterior.errors%}
+						{{form.numeroExterior(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.numeroExterior.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.numeroExterior(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.numeroInterior.label(class="form-control-label")}}
+					{%if form.numeroInterior.errors%}
+						{{form.numeroInterior(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.numeroInterior.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.numeroInterior(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.colonia.label(class="form-control-label")}}
+					{%if form.colonia.errors%}
+						{{form.colonia(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.colonia.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.colonia(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.ciudad.label(class="form-control-label")}}
+					{%if form.ciudad.errors%}
+						{{form.ciudad(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.ciudad.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.ciudad(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.codigoPostal.label(class="form-control-label")}}
+					{%if form.codigoPostal.errors%}
+						{{form.codigoPostal(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.codigoPostal.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.codigoPostal(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.estado.label(class="form-control-label")}}
+					{%if form.estado.errors%}
+						{{form.estado(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.estado.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.estado(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.pais.label(class="form-control-label")}}
+					{%if form.pais.errors%}
+						{{form.pais(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.pais.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.pais(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.origen.label(class="form-control-label")}}
+					{%if form.origen.errors%}
+						{{form.origen(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.origen.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.origen(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.estadoCivil.label(class="form-control-label")}}
+					{%if form.estadoCivil.errors%}
+						{{form.estadoCivil(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.estadoCivil.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.estadoCivil(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.ocupacion.label(class="form-control-label")}}
+					{%if form.ocupacion.errors%}
+						{{form.ocupacion(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.ocupacion.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.ocupacion(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.nacionalidad.label(class="form-control-label")}}
+					{%if form.nacionalidad.errors%}
+						{{form.nacionalidad(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.nacionalidad.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.nacionalidad(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.tipoSangre.label(class="form-control-label")}}
+					{%if form.tipoSangre.errors%}
+						{{form.tipoSangre(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.tipoSangre.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.tipoSangre(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.clasificacion.label(class="form-control-label")}}
+					{%if form.clasificacion.errors%}
+						{{form.clasificacion(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.clasificacion.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.clasificacion(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.alertaAdministrativa.label(class="form-control-label")}}
+					{%if form.alertaAdministrativa.errors%}
+						{{form.alertaAdministrativa(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.alertaAdministrativa.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.alertaAdministrativa(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.numeroSeguro.label(class="form-control-label")}}
+					{%if form.numeroSeguro.errors%}
+						{{form.numeroSeguro(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.numeroSeguro.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.numeroSeguro(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.nombreContactoEmergencia.label(class="form-control-label")}}
+					{%if form.nombreContactoEmergencia.errors%}
+						{{form.nombreContactoEmergencia(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.nombreContactoEmergencia.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.nombreContactoEmergencia(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.telefonoContactoEmergencia.label(class="form-control-label")}}
+					{%if form.telefonoContactoEmergencia.errors%}
+						{{form.telefonoContactoEmergencia(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.telefonoContactoEmergencia.errors %}
+								{%if error != 'This field is required.'%}
+									<span>
+										{{error}} 
+									</span>
+								{%endif%}
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.telefonoContactoEmergencia(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{form.coberturaMedica.label(class="form-control-label")}}
+					{%if form.coberturaMedica.errors%}
+						{{form.coberturaMedica(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.coberturaMedica.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.coberturaMedica(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.relacionContactoPaciente.label(class="form-control-label")}}
+					{%if form.relacionContactoPaciente.errors%}
+						{{form.relacionContactoPaciente(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.relacionContactoPaciente.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.relacionContactoPaciente(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+
+			</fieldset>
+			<div class="form-group">
+				{{form.submit(class="btn btn-outline-info")}}
+			</div>
+		</form>
+	</div>
+{%endblock content%}

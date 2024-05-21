@@ -1,0 +1,30 @@
+{%extends "layoutPacientes.html"%}
+{%block content%}
+	<h2>Archivos Fisioterapia</h2>
+	{% for lista in res %}
+			<h3>{{lista[1]}}</h3>
+
+			{% for archivo in lista[2] %}
+			<a href="\static\Archivos\{{idPac}}\Fisioterapia\{{lista[0]}}\{{archivo}}" >{{ archivo }}</a>
+			<button id=borrar val={{idPac}}/Fisioterapia/{{lista[0]}}/{{archivo}} class='btn btn-primary'>Borrar</button>
+			<p></p>
+			{% endfor %}
+
+	{% endfor %}
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type=text/javascript>
+	        $(function() {
+	          $('button#borrar').on('click', function(e) {
+	          	//alert($(this).attr("val"));
+	            e.preventDefault()
+	            if(confirm('Deseas borrar el archivo?')){
+	            $.getJSON('/background_process_test', {prueba: $(this).attr("val")}, function(data) {
+	              
+	            });
+	       		location.reload();}
+	          });
+	        });
+	</script>
+
+{%endblock content%}

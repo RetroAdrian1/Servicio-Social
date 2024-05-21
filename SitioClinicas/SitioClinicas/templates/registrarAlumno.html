@@ -1,0 +1,165 @@
+<!doctype html>
+{%extends "layout.html"%}
+{%block content%}
+	<div class="content-section">
+		<form method="POST" action="">
+			{{form.hidden_tag()}}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Ingresa los datos del alumno</legend>
+				<div class="form-group">
+					{{form.clinica.label(class="form-control-label")}}
+					{%if form.clinica.errors%}
+						{{form.clinica(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.clinica.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.clinica(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.numeroCuenta.label(class="form-control-label")}}
+					{%if form.numeroCuenta.errors%}
+						{{form.numeroCuenta(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.numeroCuenta.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.numeroCuenta(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.nombre.label(class="form-control-label")}}
+					{%if form.nombre.errors%}
+						{{form.nombre(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.nombre.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.nombre(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.apellidos.label(class="form-control-label")}}
+					{%if form.apellidos.errors%}
+						{{form.apellidos(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.apellidos.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.apellidos(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.año.label(class="form-control-label")}}
+					{%if form.año.errors%}
+						{{form.año(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.año.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.año(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.asignatura.label(class="form-control-label")}}
+					{%if form.asignatura.errors%}
+						{{form.asignatura(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.asignatura.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.asignatura(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.correo.label(class="form-control-label")}}
+					{%if form.correo.errors%}
+						{{form.correo(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.correo.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.correo(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.username.label(class="form-control-label")}}
+					{%if form.username.errors%}
+						{{form.username(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.username.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{% else %}
+						{{form.username(class="form-control form-control-lg")}}
+					{%endif%}	
+				</div>
+				<div class="form-group">
+					{{form.password.label(class="form-control-label")}}
+					{%if form.password.errors%}
+						{{form.password(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.password.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.password(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+				<div class="form-group">
+					{{form.confirm_password.label(class="form-control-label")}}
+					{%if form.confirm_password.errors%}
+						{{form.confirm_password(class="form-control form-control-lg is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.confirm_password.errors %}
+							<span>
+								{{error}}
+							</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.confirm_password(class="form-control form-control-lg")}}
+					{%endif%}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{form.submit(class="btn btn-outline-info")}}
+			</div>
+		</form>
+	</div>
+{%endblock content%}

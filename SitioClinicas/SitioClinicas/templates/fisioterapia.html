@@ -1,0 +1,104 @@
+{%extends "layoutPacientes.html"%}
+{%block content%}
+    <div class="content-section">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Datos fisioterapia</legend>
+                <div class="form-group">
+                    {{form.octDiscoOptico.label(class="form-control-label")}}
+                    {%if form.octDiscoOptico.errors%}
+                        {{form.octDiscoOptico(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octDiscoOptico.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octDiscoOptico(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.octMacular.label(class="form-control-label")}}
+                    {%if form.octMacular.errors%}
+                        {{form.octMacular(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octMacular.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octMacular(value=data[0][3], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.octMacularCube.label(class="form-control-label")}}
+                    {%if form.octMacularCube.errors%}
+                        {{form.octMacularCube(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octMacularCube.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octMacularCube(value=data[0][4], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.octA.label(class="form-control-label")}}
+                    {%if form.octA.errors%}
+                        {{form.octA(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octA.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octA(value=data[0][5], class="form-control form-control-lg")}}
+                    {%endif%}  
+                </div>
+                <div class="form-group">
+                    {{form.anguloIridocorneal.label(class="form-control-label")}}
+                    {%if form.anguloIridocorneal.errors%}
+                        {{form.anguloIridocorneal(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.anguloIridocorneal.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.anguloIridocorneal(value=data[0][6], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.proximaVisita.label(class="form-control-label")}}
+                    {%if form.proximaVisita.errors%}
+                        {{form.proximaVisita(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.proximaVisita.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.proximaVisita(value=data[0][7], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class="btn btn-outline-info")}}  
+                <a href="{{url_for('archivosFisioterapia', id=idPac)}}" class="btn btn-primary">Ver archivos</a>
+            </div>
+        </form>
+{%endblock content%}

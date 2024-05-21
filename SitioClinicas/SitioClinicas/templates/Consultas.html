@@ -1,0 +1,79 @@
+{%extends "layout.html"%}
+{%block content%}
+
+    <style type="text/css">
+        .container1 {
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+    </style>
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Selecciona los datos</legend>
+                <div class="form-group">
+                    {{form.clinica.label(class="form-control-label")}}
+                    {%if form.clinica.errors%}
+                        {{form.clinica(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.clinica.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.clinica(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.personal.label(class="form-control-label")}}
+                    {%if form.personal.errors%}
+                        {{form.personal(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.personal.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.personal(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                {{form.submit(class="btn btn-outline-info")}}
+                </div>
+                {% for i in data_with_columns %}
+                    <div class="container1">
+                	   {% for key, value in i.items() %}
+                            <p>{{ key }}: {{ value }}</p>
+                        {% endfor %}
+                        {%if rol=="SuperAdmin"%}
+                            <button id=borrar val={{i.values()|first}} class='btn btn-primary'>Borrar</button>
+                        {%endif%}
+                    </div>
+                {% endfor %}
+            </fieldset>
+        </form>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type=text/javascript>
+                $(function() {
+                  $('button#borrar').on('click', function(e) {
+                    //alert($(this).attr("val"));
+                    e.preventDefault()
+                    if(confirm('¿Deseas eliminar al usuario?')){
+                    $.getJSON('/background_process_test2', {id: $(this).attr("val"), clinica: "{{clinica}}", personal: "{{personal}}"}, function(data) {
+                      
+                    });
+                    location.reload();}
+                  });
+                });
+        </script>
+
+{%endblock content%}

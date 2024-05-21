@@ -1,0 +1,494 @@
+{%extends "layoutPacientes.html"%}
+{%block content%}
+    <div class="content-section">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Datos optometría</legend>
+                <div class="form-group">
+                    {{form.octDiscoOptico.label(class="form-control-label")}}
+                    {%if form.octDiscoOptico.errors%}
+                        {{form.octDiscoOptico(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octDiscoOptico.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octDiscoOptico(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.octMacular.label(class="form-control-label")}}
+                    {%if form.octMacular.errors%}
+                        {{form.octMacular(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octMacular.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octMacular(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.octMacularCube.label(class="form-control-label")}}
+                    {%if form.octMacularCube.errors%}
+                        {{form.octMacularCube(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octMacularCube.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octMacularCube(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.octA.label(class="form-control-label")}}
+                    {%if form.octA.errors%}
+                        {{form.octA(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.octA.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.octA(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.anguloIridocorneal.label(class="form-control-label")}}
+                    {%if form.anguloIridocorneal.errors%}
+                        {{form.anguloIridocorneal(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.anguloIridocorneal.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.anguloIridocorneal(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.retinografiaPosiciones.label(class="form-control-label")}}
+                    {%if form.retinografiaPosiciones.errors%}
+                        {{form.retinografiaPosiciones(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.retinografiaPosiciones.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.retinografiaPosiciones(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">ergBasal
+                    {{form.retinografiaCentral.label(class="form-control-label")}}
+                    {%if form.retinografiaCentral.errors%}
+                        {{form.retinografiaCentral(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.retinografiaCentral.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.retinografiaCentral(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.ergBasal.label(class="form-control-label")}}
+                    {%if form.ergBasal.errors%}
+                        {{form.ergBasal(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.ergBasal.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.ergBasal(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.ergPhNR.label(class="form-control-label")}}
+                    {%if form.ergPhNR.errors%}
+                        {{form.ergPhNR(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.ergPhNR.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.ergPhNR(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.ergRD.label(class="form-control-label")}}
+                    {%if form.ergRD.errors%}
+                        {{form.ergRD(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.ergRD.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.ergRD(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.ergFlickerThenFlash.label(class="form-control-label")}}
+                    {%if form.ergFlickerThenFlash.errors%}
+                        {{form.ergFlickerThenFlash(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.ergFlickerThenFlash.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.ergFlickerThenFlash(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.contrastSensitivity.label(class="form-control-label")}}
+                    {%if form.contrastSensitivity.errors%}
+                        {{form.contrastSensitivity(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.contrastSensitivity.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.contrastSensitivity(value=data[0][13], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.tonometria.label(class="form-control-label")}}
+                    {%if form.tonometria.errors%}
+                        {{form.tonometria(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.tonometria.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.tonometria(value=data[0][14], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.campimetriaFast.label(class="form-control-label")}}
+                    {%if form.campimetriaFast.errors%}
+                        {{form.campimetriaFast(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.campimetriaFast.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.campimetriaFast(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.topografia.label(class="form-control-label")}}
+                    {%if form.topografia.errors%}
+                        {{form.topografia(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.topografia.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.topografia(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.estudiosClinicos.label(class="form-control-label")}}
+                    {%if form.estudiosClinicos.errors%}
+                        {{form.estudiosClinicos(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.estudiosClinicos.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.estudiosClinicos(class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.OSDI.label(class="form-control-label")}}
+                    {%if form.OSDI.errors%}
+                        {{form.OSDI(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.OSDI.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.OSDI(value=data[0][18], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.BUT.label(class="form-control-label")}}
+                    {%if form.BUT.errors%}
+                        {{form.BUT(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.BUT.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.BUT(value=data[0][19], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.schirmer.label(class="form-control-label")}}
+                    {%if form.schirmer.errors%}
+                        {{form.schirmer(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.schirmer.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.schirmer(value=data[0][20], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.pesoCorporal.label(class="form-control-label")}}
+                    {%if form.pesoCorporal.errors%}
+                        {{form.pesoCorporal(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.pesoCorporal.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.pesoCorporal(value=data[0][21], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.estatura.label(class="form-control-label")}}
+                    {%if form.estatura.errors%}
+                        {{form.estatura(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.estatura.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.estatura(value=data[0][22], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.circunferenciaCintura.label(class="form-control-label")}}
+                    {%if form.circunferenciaCintura.errors%}
+                        {{form.circunferenciaCintura(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.circunferenciaCintura.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.circunferenciaCintura(value=data[0][23], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.IMC.label(class="form-control-label")}}
+                    {%if form.IMC.errors%}
+                        {{form.IMC(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.IMC.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.IMC(value=data[0][24], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.genero.label(class="form-control-label")}}
+                    {%if form.genero.errors%}
+                        {{form.genero(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.genero.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.genero(value=data[0][25], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.edad.label(class="form-control-label")}}
+                    {%if form.edad.errors%}
+                        {{form.edad(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.edad.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.edad(value=data[0][26], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.paquimetria.label(class="form-control-label")}}
+                    {%if form.paquimetria.errors%}
+                        {{form.paquimetria(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.paquimetria.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.paquimetria(value=data[0][27], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.glucosa.label(class="form-control-label")}}
+                    {%if form.glucosa.errors%}
+                        {{form.glucosa(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.glucosa.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.glucosa(value=data[0][28], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.presiónArterial.label(class="form-control-label")}}
+                    {%if form.presiónArterial.errors%}
+                        {{form.presiónArterial(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.presiónArterial.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.presiónArterial(value=data[0][29], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.diagnosticoOcular.label(class="form-control-label")}}
+                    {%if form.diagnosticoOcular.errors%}
+                        {{form.diagnosticoOcular(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.diagnosticoOcular.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.diagnosticoOcular(value=data[0][30], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.tratamientos.label(class="form-control-label")}}
+                    {%if form.tratamientos.errors%}
+                        {{form.tratamientos(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.tratamientos.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.tratamientos(value=data[0][31], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.seguimiento.label(class="form-control-label")}}
+                    {%if form.seguimiento.errors%}
+                        {{form.seguimiento(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.seguimiento.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.seguimiento(value=data[0][32], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+                <div class="form-group">
+                    {{form.proximaVisita.label(class="form-control-label")}}
+                    {%if form.proximaVisita.errors%}
+                        {{form.proximaVisita(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {%for error in form.proximaVisita.errors %}
+                            <span>
+                                {{error}}
+                            </span>
+                            {%endfor%}
+                        </div>
+                    {% else %}
+                        {{form.proximaVisita(value=data[0][33], class="form-control form-control-lg")}}
+                    {%endif%}   
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class="btn btn-outline-info")}}  
+                <a href="{{url_for('archivosOptometria', id=idPac)}}" class="btn btn-primary">Ver archivos</a>
+            </div>
+        </form>
+{%endblock content%}

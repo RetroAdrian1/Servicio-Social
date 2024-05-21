@@ -1,0 +1,332 @@
+{%extends "layout.html"%}
+{%block content%}
+
+    <style type="text/css">
+        .container1 {
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+    </style>
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                {%if rol=="Admin"%}
+                    <div class="form-group">
+                        {{form.clinica.label(class="form-control-label")}}
+                        {%if form.clinica.errors%}
+                            {{form.clinica(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {%for error in form.clinica.errors %}
+                                <span>
+                                    {{error}}
+                                </span>
+                                {%endfor%}
+                            </div>
+                        {% else %}
+                            {{form.clinica(class="form-control form-control-lg")}}
+                        {%endif%}   
+                    </div>
+                    <div class="form-group">
+                        {{form.id.label(class="form-control-label")}}
+                        {%if form.id.errors%}
+                            {{form.id(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {%for error in form.id.errors %}
+                                <span>
+                                    {{error}}
+                                </span>
+                                {%endfor%}
+                            </div>
+                        {% else %}
+                            {{form.id(value=data[0][0], class="form-control form-control-lg")}}
+                        {%endif%}   
+                    </div>
+                    <div class="form-group">
+                        {{form.nombre.label(class="form-control-label")}}
+                        {%if form.nombre.errors%}
+                            {{form.nombre(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {%for error in form.nombre.errors %}
+                                <span>
+                                    {{error}}
+                                </span>
+                                {%endfor%}
+                            </div>
+                        {% else %}
+                            {{form.nombre(value=data[0][1], class="form-control form-control-lg")}}
+                        {%endif%}   
+                    </div>
+                    <div class="form-group">
+                        {{form.correo.label(class="form-control-label")}}
+                        {%if form.correo.errors%}
+                            {{form.correo(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {%for error in form.correo.errors %}
+                                <span>
+                                    {{error}}
+                                </span>
+                                {%endfor%}
+                            </div>
+                        {% else %}
+                            {{form.correo(value=data[0][3], class="form-control form-control-lg")}}
+                        {%endif%}   
+                    </div>
+                    <div class="form-group">
+                        {{form.username.label(class="form-control-label")}}
+                        {%if form.username.errors%}
+                            {{form.username(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {%for error in form.username.errors %}
+                                <span>
+                                    {{error}}
+                                </span>
+                                {%endfor%}
+                            </div>
+                        {% else %}
+                            {{form.username(value=data[0][2], class="form-control form-control-lg")}}
+                        {%endif%}   
+                    </div>
+                    <div class="form-group">
+                        {{form.submit(value="Guardar información", class="btn btn-outline-info")}}
+                        <a href="{{url_for('cambiarContraseña')}}" class="btn btn-primary">Cambiar contraseña</a>
+                    </div>
+                {%endif%}
+            
+
+                {%if rol=="Profesor"%}
+                    <div class="form-group">
+                            {{form.clinica.label(class="form-control-label")}}
+                            {%if form.clinica.errors%}
+                                {{form.clinica(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.clinica.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.clinica(class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.rfc.label(class="form-control-label")}}
+                            {%if form.rfc.errors%}
+                                {{form.rfc(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.rfc.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.rfc(value=data[0][0], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.nombre.label(class="form-control-label")}}
+                            {%if form.nombre.errors%}
+                                {{form.nombre(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.nombre.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.nombre(value=data[0][1], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.apellidos.label(class="form-control-label")}}
+                            {%if form.apellidos.errors%}
+                                {{form.apellidos(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.apellidos.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.apellidos(value=data[0][2], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.correo.label(class="form-control-label")}}
+                            {%if form.correo.errors%}
+                                {{form.correo(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.correo.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.correo(value=data[0][4], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.username.label(class="form-control-label")}}
+                            {%if form.username.errors%}
+                                {{form.username(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.username.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.username(value=data[0][3], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                    <div class="form-group">
+                        {{form.submit(value="Guardar información", class="btn btn-outline-info")}}
+                        <a href="{{url_for('cambiarContraseña')}}" class="btn btn-primary">Cambiar contraseña</a>
+                    </div>
+                {%endif%}
+
+
+                {%if rol=="Alumno"%}
+
+                    <div class="form-group">
+                            {{form.clinica.label(class="form-control-label")}}
+                            {%if form.clinica.errors%}
+                                {{form.clinica(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.clinica.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.clinica(class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.numeroCuenta.label(class="form-control-label")}}
+                            {%if form.numeroCuenta.errors%}
+                                {{form.numeroCuenta(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.numeroCuenta.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.numeroCuenta(value=data[0][0], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.nombre.label(class="form-control-label")}}
+                            {%if form.nombre.errors%}
+                                {{form.nombre(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.nombre.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.nombre(value=data[0][1],class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.apellidos.label(class="form-control-label")}}
+                            {%if form.apellidos.errors%}
+                                {{form.apellidos(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.apellidos.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.apellidos(value=data[0][2],class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.año.label(class="form-control-label")}}
+                            {%if form.año.errors%}
+                                {{form.año(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.año.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.año(value=data[0][3], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.asignatura.label(class="form-control-label")}}
+                            {%if form.asignatura.errors%}
+                                {{form.asignatura(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.asignatura.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.asignatura(value=data[0][4], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.correo.label(class="form-control-label")}}
+                            {%if form.correo.errors%}
+                                {{form.correo(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.correo.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.correo(value=data[0][6], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        <div class="form-group">
+                            {{form.username.label(class="form-control-label")}}
+                            {%if form.username.errors%}
+                                {{form.username(class="form-control form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {%for error in form.username.errors %}
+                                    <span>
+                                        {{error}}
+                                    </span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{form.username(value=data[0][5], class="form-control form-control-lg")}}
+                            {%endif%}   
+                        </div>
+                        
+                    <div class="form-group">
+                        {{form.submit(value="Guardar información", class="btn btn-outline-info")}}
+                        <a href="{{url_for('cambiarContraseña')}}" class="btn btn-primary">Cambiar contraseña</a>
+                    </div>
+                    
+                {%endif%}
+            </fieldset>    
+        </form>
+
+
+            
+{%endblock content%}
